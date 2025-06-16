@@ -16,10 +16,15 @@
 #define EXTERN extern
 #endif
 
+#define ENABLE_VERIFY_FLOW		(1)
+
 EXTERN U16 gwUpiuSizeChkRlt;    /* upiu size check*/
 
 BOOL upiu_size_check(void);     /* check all upiu size to confirm there are all correct*/
 void test_cmd_upiu_combine(void);
+void test_cout(void);
+
+void verify_all_case(void);
 
 #undef EXTERN
 

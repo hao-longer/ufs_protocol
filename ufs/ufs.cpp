@@ -18,93 +18,93 @@ std::ostream &operator<<(std::ostream &os, const Cmd_upiu_header &upiu_header)
     return os;
 }
 
-std::ostream &Scsi_read_06::operator<<(std::ostream &os)
+std::ostream &operator<<(std::ostream &os, const Scsi_read_06 &read_06)
 {
-    os << "\t\tm_opcode = " << m_opcode << '\n'
-        << "\t\tm_byte1_high_rsv = " << m_byte1_high_rsv << '\n'
-        << "\t\tm_lba_high = " << m_lba_high << '\n'
-        << "\t\tm_lba_low = " << m_lba_low << '\n'
-        << "\t\tm_trans_len = " << m_trans_len << '\n'
-        << "\t\tm_ctl = " << m_ctl << std::endl;
+    os << "\t\tm_opcode = " << read_06.m_opcode << '\n'
+        << "\t\tm_byte1_high_rsv = " << read_06.m_byte1_high_rsv << '\n'
+        << "\t\tm_lba_high = " << read_06.m_lba_high << '\n'
+        << "\t\tm_lba_low = " << read_06.m_lba_low << '\n'
+        << "\t\tm_trans_len = " << read_06.m_trans_len << '\n'
+        << "\t\tm_ctl = " << read_06.m_ctl << std::endl;
     return os;
 }
 
-std::ostream &Scsi_read_10::operator<<(std::ostream &os)
+std::ostream &operator<<(std::ostream &os, const Scsi_read_10 &read_10)
 {
-    os << "\t\tm_opcode = " << m_opcode << '\n'
-        << "\t\tm_obsolete = " << m_obsolete << '\n'
-        << "\t\tm_fua_NV = " << m_fua_NV << '\n'
-        << "\t\tm_rsv0 = " << m_rsv0 << '\n'
-        << "\t\tm_fua = " << m_fua << '\n'
-        << "\t\tm_dpo = " << m_dpo << '\n'
-        << "\t\tm_RDProtect = " << m_RDProtect << '\n'
-        << "\t\tm_lba = " << m_lba << '\n'
-        << "\t\tm_group_num = " << m_group_num << '\n'
-        << "\t\tm_rsv1 = " << m_rsv1 << '\n'
-        << "\t\tm_trans_len = " << m_trans_len << '\n'
-        << "\t\tm_ctl = " << m_ctl << std::endl;
+    os << "\t\tm_opcode = " << read_10.m_opcode << '\n'
+        << "\t\tm_obsolete = " << read_10.m_obsolete << '\n'
+        << "\t\tm_fua_NV = " << read_10.m_fua_NV << '\n'
+        << "\t\tm_rsv0 = " << read_10.m_rsv0 << '\n'
+        << "\t\tm_fua = " << read_10.m_fua << '\n'
+        << "\t\tm_dpo = " << read_10.m_dpo << '\n'
+        << "\t\tm_RDProtect = " << read_10.m_RDProtect << '\n'
+        << "\t\tm_lba = " << read_10.m_lba << '\n'
+        << "\t\tm_group_num = " << read_10.m_group_num << '\n'
+        << "\t\tm_rsv1 = " << read_10.m_rsv1 << '\n'
+        << "\t\tm_trans_len = " << read_10.m_trans_len << '\n'
+        << "\t\tm_ctl = " << read_10.m_ctl << std::endl;
     return os;
 }
 
-std::ostream &Scsi_read_16::operator<<(std::ostream &os)
+std::ostream &operator<<(std::ostream &os, const Scsi_read_16 &read_16)
 {
-    os << "\t\tm_opcode = " << m_opcode << '\n'
-        << "\t\tm_obsolete = " << m_obsolete << '\n'
-        << "\t\tm_fua_NV = " << m_fua_NV << '\n'
-        << "\t\tm_rsv0 = " << m_rsv0 << '\n'
-        << "\t\tm_fua = " << m_fua << '\n'
-        << "\t\tm_dpo = " << m_dpo << '\n'
-        << "\t\tm_RDProtect = " << m_RDProtect << '\n'
-        << "\t\tm_lba = " << m_lba << '\n'
-        << "\t\tm_group_num = " << m_group_num << '\n'
-        << "\t\tm_rsv1 = " << m_rsv1 << '\n'
-        << "\t\tm_trans_len = " << m_trans_len << '\n'
-        << "\t\tm_ctl = " << m_ctl << std::endl;
+    os << "\t\tm_opcode = " << read_16.m_opcode << '\n'
+        << "\t\tm_obsolete = " << read_16.m_obsolete << '\n'
+        << "\t\tm_fua_NV = " << read_16.m_fua_NV << '\n'
+        << "\t\tm_rsv0 = " << read_16.m_rsv0 << '\n'
+        << "\t\tm_fua = " << read_16.m_fua << '\n'
+        << "\t\tm_dpo = " << read_16.m_dpo << '\n'
+        << "\t\tm_RDProtect = " << read_16.m_RDProtect << '\n'
+        << "\t\tm_lba = " << read_16.m_lba << '\n'
+        << "\t\tm_group_num = " << read_16.m_group_num << '\n'
+        << "\t\tm_rsv1 = " << read_16.m_rsv1 << '\n'
+        << "\t\tm_trans_len = " << read_16.m_trans_len << '\n'
+        << "\t\tm_ctl = " << read_16.m_ctl << std::endl;
     return os;
 }
 
-std::ostream &Scsi_write_06::operator<<(std::ostream &os)
+std::ostream &operator<<(std::ostream &os, const Scsi_write_06 &write_06)
 {
-    os << "\t\tm_opcode = " << m_opcode << '\n'
-        << "\t\tm_byte1_high_rsv = " << m_byte1_high_rsv << '\n'
-        << "\t\tm_lba_high = " << m_lba_high << '\n'
-        << "\t\tm_lba_low = " << m_lba_low << '\n'
-        << "\t\tm_trans_len = " << m_trans_len << '\n'
-        << "\t\tm_ctl = " << m_ctl << std::endl;
+    os << "\t\tm_opcode = " << write_06.m_opcode << '\n'
+        << "\t\tm_byte1_high_rsv = " << write_06.m_byte1_high_rsv << '\n'
+        << "\t\tm_lba_high = " << write_06.m_lba_high << '\n'
+        << "\t\tm_lba_low = " << write_06.m_lba_low << '\n'
+        << "\t\tm_trans_len = " << write_06.m_trans_len << '\n'
+        << "\t\tm_ctl = " << write_06.m_ctl << std::endl;
     return os;
 }
 
-std::ostream &Scsi_write_10::operator<<(std::ostream &os)
+std::ostream &operator<<(std::ostream &os, const Scsi_write_10 &write_10)
 {
-    os << "\t\tm_opcode = " << m_opcode << '\n'
-        << "\t\tm_obsolete = " << m_obsolete << '\n'
-        << "\t\tm_fua_NV = " << m_fua_NV << '\n'
-        << "\t\tm_rsv0 = " << m_rsv0 << '\n'
-        << "\t\tm_fua = " << m_fua << '\n'
-        << "\t\tm_dpo = " << m_dpo << '\n'
-        << "\t\tm_RDProtect = " << m_RDProtect << '\n'
-        << "\t\tm_lba = " << m_lba << '\n'
-        << "\t\tm_group_num = " << m_group_num << '\n'
-        << "\t\tm_rsv1 = " << m_rsv1 << '\n'
-        << "\t\tm_trans_len = " << m_trans_len << '\n'
-        << "\t\tm_ctl = " << m_ctl << std::endl;
+    os << "\t\tm_opcode = " << write_10.m_opcode << '\n'
+        << "\t\tm_obsolete = " << write_10.m_obsolete << '\n'
+        << "\t\tm_fua_NV = " << write_10.m_fua_NV << '\n'
+        << "\t\tm_rsv0 = " << write_10.m_rsv0 << '\n'
+        << "\t\tm_fua = " << write_10.m_fua << '\n'
+        << "\t\tm_dpo = " << write_10.m_dpo << '\n'
+        << "\t\tm_RDProtect = " << write_10.m_RDProtect << '\n'
+        << "\t\tm_lba = " << write_10.m_lba << '\n'
+        << "\t\tm_group_num = " << write_10.m_group_num << '\n'
+        << "\t\tm_rsv1 = " << write_10.m_rsv1 << '\n'
+        << "\t\tm_trans_len = " << write_10.m_trans_len << '\n'
+        << "\t\tm_ctl = " << write_10.m_ctl << std::endl;
     return os;
 }
 
-std::ostream &Scsi_write_16::operator<<(std::ostream &os)
+std::ostream &operator<<(std::ostream &os, const Scsi_write_16 &write_16)
 {
-    os << "\t\tm_opcode = " << m_opcode << '\n'
-        << "\t\tm_obsolete = " << m_obsolete << '\n'
-        << "\t\tm_fua_NV = " << m_fua_NV << '\n'
-        << "\t\tm_rsv0 = " << m_rsv0 << '\n'
-        << "\t\tm_fua = " << m_fua << '\n'
-        << "\t\tm_dpo = " << m_dpo << '\n'
-        << "\t\tm_RDProtect = " << m_RDProtect << '\n'
-        << "\t\tm_lba = " << m_lba << '\n'
-        << "\t\tm_group_num = " << m_group_num << '\n'
-        << "\t\tm_rsv1 = " << m_rsv1 << '\n'
-        << "\t\tm_trans_len = " << m_trans_len << '\n'
-        << "\t\tm_ctl = " << m_ctl << std::endl;
+    os << "\t\tm_opcode = " << write_16.m_opcode << '\n'
+        << "\t\tm_obsolete = " << write_16.m_obsolete << '\n'
+        << "\t\tm_fua_NV = " << write_16.m_fua_NV << '\n'
+        << "\t\tm_rsv0 = " << write_16.m_rsv0 << '\n'
+        << "\t\tm_fua = " << write_16.m_fua << '\n'
+        << "\t\tm_dpo = " << write_16.m_dpo << '\n'
+        << "\t\tm_RDProtect = " << write_16.m_RDProtect << '\n'
+        << "\t\tm_lba = " << write_16.m_lba << '\n'
+        << "\t\tm_group_num = " << write_16.m_group_num << '\n'
+        << "\t\tm_rsv1 = " << write_16.m_rsv1 << '\n'
+        << "\t\tm_trans_len = " << write_16.m_trans_len << '\n'
+        << "\t\tm_ctl = " << write_16.m_ctl << std::endl;
     return os;
 }
 

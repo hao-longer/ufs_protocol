@@ -51,12 +51,13 @@ note£º
 class Cmd_upiu_header
 {
 public:
+	friend std::ostream &operator<<(std::ostream &os, const Cmd_upiu_header &upiu_header);
+
 	/* user only care about important parameter*/
 	Cmd_upiu_header(U8 task_tag, U8 flags, U32 exp_data_trans_len, U8 lun = 0, U8 cmd_set_type = 0, U8 iid = 0) : 
 	m_task_tag(task_tag), m_flags(flags), m_lun(lun), m_cmd_set_type(cmd_set_type & 0x0F), 
 	m_iid(iid & 0x0F), m_exp_data_trans_len(exp_data_trans_len) {}
 
-	friend std::ostream &operator<<(std::ostream &os, const Cmd_upiu_header &upiu_header);
 	/* The subsequent error check can be defined as an friend function*/
 private:
 	U8 m_trans_type = TRANS_TYPE_CMD;
@@ -75,8 +76,6 @@ private:
 	U16 m_data_seg_len = 0;
 	U32 m_exp_data_trans_len = 0;
 };
-
-extern std::ostream &operator<<(std::ostream &os, const Cmd_upiu_header &upiu_header);
 
 
 /*define response upiu header*/
@@ -143,9 +142,11 @@ private:
 class Scsi_read_06
 {
 public:
+	friend std::ostream &operator<<(std::ostream &os, const Scsi_read_06 &read_06);
+
 	Scsi_read_06(U8 lba_h, U16 lba_l, U8 trans_len) : 
 	m_lba_high(lba_h & 0x0F), m_lba_low(lba_l), m_trans_len(trans_len){}
-	std::ostream &operator<<(std::ostream &os);
+	
 private:
 	U8 m_opcode = 0x08;
 	U8 m_byte1_high_rsv : 4;
@@ -158,10 +159,12 @@ private:
 class Scsi_read_10
 {
 public:
+	friend std::ostream &operator<<(std::ostream &os, const Scsi_read_10 &read_10);
+
 	Scsi_read_10(U32 lba, U16 trans_len, BOOL fua_en = 0, BOOL dpo_en = 0, U8 group_num = 0) : 
 	m_lba(lba),  m_trans_len(trans_len), m_fua(fua_en), m_dpo(dpo_en), 
 	m_obsolete(0), m_fua_NV(0), m_rsv0(0), m_RDProtect(0), m_group_num(group_num), m_rsv1(0){}
-	std::ostream &operator<<(std::ostream &os);
+	
 private:
 	U8 m_opcode = 0x28;
 	U8 m_obsolete : 1;
@@ -180,10 +183,12 @@ private:
 class Scsi_read_16
 {
 public:
+	friend std::ostream &operator<<(std::ostream &os, const Scsi_read_16 &read_16);
+
 	Scsi_read_16(U64 lba, U32 trans_len, BOOL fua_en = 0, BOOL dpo_en = 0, U8 group_num = 0) : 
 	m_lba(lba),  m_trans_len(trans_len), m_fua(fua_en), m_dpo(dpo_en), 
 	m_obsolete(0), m_fua_NV(0), m_rsv0(0), m_RDProtect(0), m_group_num(group_num), m_rsv1(0){}
-	std::ostream &operator<<(std::ostream &os);
+
 private:
 	U8 m_opcode = 0x28;
 	U8 m_obsolete : 1;
@@ -203,9 +208,11 @@ private:
 class Scsi_write_06
 {
 public:
+	friend std::ostream &operator<<(std::ostream &os, const Scsi_write_06 &write_06);
+
 	Scsi_write_06(U8 lba_h, U16 lba_l, U8 trans_len) : 
 	m_lba_high(lba_h & 0x0F), m_lba_low(lba_l), m_trans_len(trans_len){}
-	std::ostream &operator<<(std::ostream &os);
+
 private:
 	U8 m_opcode = 0x08;
 	U8 m_byte1_high_rsv : 4;
@@ -219,10 +226,12 @@ private:
 class Scsi_write_10
 {
 public:
+	friend std::ostream &operator<<(std::ostream &os, const Scsi_write_10 &write_10);
+
 	Scsi_write_10(U32 lba, U16 trans_len, BOOL fua_en = 0, BOOL dpo_en = 0, U8 group_num = 0) : 
 	m_lba(lba),  m_trans_len(trans_len), m_fua(fua_en), m_dpo(dpo_en), 
 	m_obsolete(0), m_fua_NV(0), m_rsv0(0), m_RDProtect(0), m_group_num(group_num), m_rsv1(0){}
-	std::ostream &operator<<(std::ostream &os);
+
 private:
 	U8 m_opcode = 0x28;
 	U8 m_obsolete : 1;
@@ -241,10 +250,12 @@ private:
 class Scsi_write_16
 {
 public:
+	friend std::ostream &operator<<(std::ostream &os, const Scsi_write_16 &write_16);
+
 	Scsi_write_16(U64 lba, U32 trans_len, BOOL fua_en = 0, BOOL dpo_en = 0, U8 group_num = 0) : 
 	m_lba(lba),  m_trans_len(trans_len), m_fua(fua_en), m_dpo(dpo_en), 
 	m_obsolete(0), m_fua_NV(0), m_rsv0(0), m_RDProtect(0), m_group_num(group_num), m_rsv1(0){}
-	std::ostream &operator<<(std::ostream &os);
+
 private:
 	U8 m_opcode = 0x28;
 	U8 m_obsolete : 1;
@@ -260,6 +271,13 @@ private:
 	U8 m_ctl = 0;
 };
 
+extern std::ostream &operator<<(std::ostream &os, const Cmd_upiu_header &upiu_header);
+extern std::ostream &operator<<(std::ostream &os, const Scsi_read_06 &read_06);
+extern std::ostream &operator<<(std::ostream &os, const Scsi_read_10 &read_10);
+extern std::ostream &operator<<(std::ostream &os, const Scsi_read_16 &read_16);
+extern std::ostream &operator<<(std::ostream &os, const Scsi_write_06 &write_06);
+extern std::ostream &operator<<(std::ostream &os, const Scsi_write_10 &write_10);
+extern std::ostream &operator<<(std::ostream &os, const Scsi_write_16 &write_16);
 
 #pragma pack()
 
